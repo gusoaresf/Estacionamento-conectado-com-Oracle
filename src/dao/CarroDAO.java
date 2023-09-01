@@ -44,9 +44,9 @@ public class CarroDAO {
         sql += "where placa = ?";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setString(1, carro.getPlaca());
-            ps.setString(2, carro.getCor());
-            ps.setString(3, carro.getDescricao());
+            ps.setString(3, carro.getPlaca());
+            ps.setString(1, carro.getCor());
+            ps.setString(2, carro.getDescricao());
             if (ps.executeUpdate() > 0){
                 return "inserido com sucesso";
             } else {
