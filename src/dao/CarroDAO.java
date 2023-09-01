@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -80,6 +81,19 @@ public class CarroDAO {
         ArrayList<carro> listaCarro = new ArrayList<carro>();
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    carro cb = new carro();
+                    cb.setPlaca(rs.getString(1));
+                    cb.setCor(rs.getString(2));
+                    cb.setDescricao(rs.getString(3));
+                    listaCarro.add(cb);
+                }
+                return listaCarro;
+            } else {
+                return null;
+            }
         } catch (SQLException e){
             return null;
         }
