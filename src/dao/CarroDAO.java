@@ -58,18 +58,15 @@ public class CarroDAO {
     }   
 
     public String excluir(carro carro){
-        String sql = "update carro ";
-        sql += "set cor = ?, descricao = ? ";
+        String sql = "delete from carro ";
         sql += "where placa = ?";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setString(3, carro.getPlaca());
-            ps.setString(1, carro.getCor());
-            ps.setString(2, carro.getDescricao());
+            ps.setString(1, carro.getPlaca());
             if (ps.executeUpdate() > 0){
-                return "Alterado com sucesso";
+                return "Excluido com sucesso";
             } else {
-                return "Erro ao alterar";
+                return "Erro ao excluir";
             }
         } catch (SQLException e){
             return e.getMessage();
