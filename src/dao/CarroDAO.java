@@ -37,4 +37,23 @@ public class CarroDAO {
             return e.getMessage();
         }
     }
+
+    public String alterar(carro carro){
+        String sql = "update carro ";
+        sql += "set cor = ?, descricao = ? ";
+        sql += "where placa = ?";
+        try{
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ps.setString(1, carro.getPlaca());
+            ps.setString(2, carro.getCor());
+            ps.setString(3, carro.getDescricao());
+            if (ps.executeUpdate() > 0){
+                return "inserido com sucesso";
+            } else {
+                return "Erro ao inserir";
+            }
+        } catch (SQLException e){
+            return e.getMessage();
+        }
+    }   
 }
