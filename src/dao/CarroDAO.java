@@ -3,6 +3,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import bean.carro;
 
 public class CarroDAO {
@@ -70,6 +72,16 @@ public class CarroDAO {
             }
         } catch (SQLException e){
             return e.getMessage();
+        }
+    }
+
+    public ArrayList<carro> listarTodos(){
+        String sql = "select * from carro";
+        ArrayList<carro> listaCarro = new ArrayList<carro>();
+        try{
+            PreparedStatement ps = getCon().prepareStatement(sql);
+        } catch (SQLException e){
+            return null;
         }
     }
 }
