@@ -12,9 +12,9 @@ public class Teste1 {
         Connection con = Conexcao.abrirConexcao();
 
         carro cb= new carro();
-        cb.setPlaca("JKK1901");
-        cb.setCor("Amarelo");
-        cb.setDescricao("Carro 2");
+        cb.setPlaca("JKK1903");
+        cb.setCor("Preto");
+        cb.setDescricao("Carro 4");
 
         CarroDAO cd = new CarroDAO(con);
         System.out.println(cd.inserir(cb));

@@ -18,7 +18,7 @@ public class Teste4 {
             for (carro carro : lista) {
                 System.out.println("Placa: " + carro.getPlaca());
                 System.out.println("Cor: " + carro.getCor());
-                System.out.println("Descrição: " + carro.getDescricao());
+                System.out.println("Descricao: " + carro.getDescricao());
             }
         }
 
